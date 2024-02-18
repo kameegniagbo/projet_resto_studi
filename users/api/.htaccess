@@ -1,0 +1,6 @@
+RewriteEngine On # Activer le module Rewrite
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^meet/(.*)$ meet.php?id=$1 [QSA]
+RewriteRule ^sante/(.*)$ sante.php?id=$1 [QSA]

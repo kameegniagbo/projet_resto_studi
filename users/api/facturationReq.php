@@ -1,0 +1,480 @@
+<?php
+// Connect to database
+header('Access-Control-Allow-Origin: *');
+require_once '../init.php';
+require_once 'fieldsCheckingFunctions.php';
+date_default_timezone_set('UTC');
+$dateTimeNow = date('Y-m-d H:i:s');
+$dateNow = date('Y-m-d');
+$request_method = $_SERVER["REQUEST_METHOD"];
+$table0 = "appFactVente";
+$table1 = "appFactVenteDetail";
+$table2 = "appClt";
+$table3 = "appFactVentePay";
+$responseaddAllFactData=array() ;
+
+
+function getAllData()
+{
+	global $appDBconn;
+	global $table0;
+	
+	
+	// initilize all variable
+	$params = $columns = $totalRecords = $data = array();
+
+	$params = $_REQUEST;
+
+	//define index of column
+	$columns = array( 
+        0 => 'id',
+        1 => 'date',
+        2 => 'nomClt',
+        3 => 'numFact',
+        4 => 'lieu',
+        5 => 'note',
+        6 => 'datehr'
+	);
+
+	$where = $sqlTot = $sqlRec = "";
+
+	// check search value exist
+	if( !empty($params['search']['value']) ) {   
+		$where .=" WHERE 1 AND ";
+		$where .=" ( nom LIKE '%".$params['search']['value']."%' )";
+	}
+
+	// getting total number records without any search
+	$sql = "SELECT id, date, nomClt, numFact, lieu, note, datehr FROM ".$table0."  ";
+	$sqlTot .= $sql;
+	$sqlRec .= $sql;
+	//concatenate search sql if value exist
+	if(isset($where) && $where != '') {
+
+		$sqlTot .= $where;
+		$sqlRec .= $where;
+	}
+
+ 	$sqlRec .=  " ORDER BY ". $columns[$params['order'][0]['column']]."   ".$params['order'][0]['dir']."  LIMIT ".$params['start']." ,".$params['length']." ";
+
+	$queryTot = mysqli_query($appDBconn, $sqlTot) or die("database error:". mysqli_error($appDBconn));
+
+	$totalRecords = mysqli_num_rows($queryTot);
+
+	$queryRecords = mysqli_query($appDBconn, $sqlRec) or die("error to fetch data");
+
+	//iterate on results row and create new index array of data
+    while( $row = mysqli_fetch_row($queryRecords) ) 
+    { 
+		$data[] = $row;
+	}	
+
+	$json_data = array(
+			"draw"            => intval( $params['draw'] ),   
+			"recordsTotal"    => intval( $totalRecords ),  
+			"recordsFiltered" => intval($totalRecords),
+			"data"            => $data   // total data array
+			);
+
+	echo json_encode($json_data);  // send data as json format
+}
+
+// function getData($id=0)
+// {
+// 	global $appDBconn;
+// 	global $table;
+// 	$query = "SELECT * FROM ".$table;
+// 	if($id != 0)
+// 	{
+// 		$query .= " WHERE id=".$id." LIMIT 1";
+// 	}
+// 	$response = array();
+// 	$result = mysqli_query($appDBconn, $query);
+// 	while($row = mysqli_fetch_assoc($result))
+// 	{
+// 		$response[] = $row;
+// 	}
+// 	header('Content-Type: application/json');
+// 	echo json_encode($response, JSON_PRETTY_PRINT);
+// }
+
+//#####################################################################
+//#####################################################################
+//#####################################################################
+function addFactData()
+{
+
+	global $appDBconn, $table0, $dateTimeNow, $dateNow;
+
+    $date = checkEmptyInput($_POST["date"]);
+    $userLog = checkEmptyInput($_POST["userLog"]);
+    $nomClt = checkEmptyInput($_POST["nomClt"]);
+    $idClt = checkEmptyInput($_POST["idClt"]);
+    $numFact = checkEmptyInput($_POST["numFact"]);
+    $lieu = checkEmptyInput($_POST["lieu"]);
+    // $note = checkEmptyInput($_POST["note"]);
+    $datehr = $dateTimeNow;
+
+        // $querySelect = "SELECT * FROM ".$table0." WHERE idUser='".$idUser."' AND annee='".$annee."' AND codActiv='".$codActiv."' ";	
+        // $resultSelect = mysqli_query($appDBconn, $querySelect);
+        
+        // if( mysqli_num_rows($resultSelect) > 0) {
+            
+        //     $row = mysqli_fetch_assoc($resultSelect);
+        //     $idx = $row["id"];
+            
+              
+        //     $query1="UPDATE ".$table0." SET 
+        //       respoExec='".$respoExec."', 
+        //       cal='".$cal."', qte='".$qte."', ctUnit='".$ctUnit."', 
+        //       ctBase='".$ctBase."', mntDispoETAT='".$mntDispoETAT."', mntDispoCOGES='".$mntDispoCOGES."', 
+        //       mntDispoOMS='".$mntDispoOMS."', mntDispoUNICEF='".$mntDispoUNICEF."', mntDispoUNFPA='".$mntDispoUNFPA."', 
+        //       mntDispoFM='".$mntDispoFM."', mntDispoBM='".$mntDispoBM."', mntDispoHDI='".$mntDispoHDI."', 
+        //       mntDispoAUTRES='".$mntDispoAUTRES."', srcCtNonFin='".$srcCtNonFin."', dateTimeLog='".$dateTimeNow."' WHERE id='".$idx."' "; 
+        
+        //     if(mysqli_query($appDBconn, $query1))
+        //     {
+        //     $response=array(
+        //     'status' => 1,
+        //     'status_message' =>'Données mises à jour avec succès !'
+        //     );
+        //     }
+        //     else
+        //     {
+        //     $response=array(
+        //     'status' => 0,
+        //     'status_message' =>'ERREUR!.'. mysqli_error($appDBconn)
+        //     );
+        //     }
+        //     header('Content-Type: application/json');
+        //     echo json_encode($response);
+        // }
+        // else
+        // {
+              $query0 = "INSERT INTO ".$table0." (date, nomClt, numFact, lieu, userLog, datehr, idClt) 
+                        VALUES('".$date."', '".$nomClt."', '".$numFact."', '".$lieu."', '".$userLog."', '".$datehr."', '".$idClt."') ";
+        
+            if(mysqli_query($appDBconn, $query0))
+            {
+                $insert_id = mysqli_insert_id($appDBconn);
+                $response=array(
+                'status' => 1,
+                'status_message' =>'Facture créée !' );
+            }
+            else
+            {
+                $response=array(
+                'status' => 0,
+                'status_message' =>'ERREUR! ->  '. mysqli_error($appDBconn) );
+            }
+            
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            
+        // }
+
+}
+
+//#####################################################################
+//#####################################################################
+//#####################################################################
+function addFactDetailsData()
+{
+
+	global $appDBconn, $table1, $dateTimeNow, $dateNow;
+
+    $date = checkEmptyInput($_POST["date"]);
+    $userLog = checkEmptyInput($_POST["userLog"]);
+    $nomClt = checkEmptyInput($_POST["nomClt"]);
+    $idClt = checkEmptyInput($_POST["idClt"]);
+    $numFact = checkEmptyInput($_POST["numFact"]);
+    $prixCatOeuf = checkEmptyInput($_POST["prixCatOeuf"]);
+    $nomCatOeuf = checkEmptyInput($_POST["nomCatOeuf"]);
+    $qte = checkEmptyInput($_POST["qte"]);
+    $lieu = checkEmptyInput($_POST["lieu"]);
+    $datehr = $dateTimeNow;
+    $mntCatOeuf = $qte * $prixCatOeuf;
+
+        $querySelect = "SELECT * FROM ".$table1." WHERE numFact='".$numFact."' AND nomCatOeuf='".$nomCatOeuf."' ";	
+        $resultSelect = mysqli_query($appDBconn, $querySelect);
+        
+        if( mysqli_num_rows($resultSelect) > 0) {
+            
+            $row = mysqli_fetch_assoc($resultSelect);
+            $idx = $row["id"];
+              
+            $query1="UPDATE ".$table1." SET prixCatOeuf='".$prixCatOeuf."', qte='".$qte."', mntCatOeuf='".$mntCatOeuf."', lieu='".$lieu."' WHERE id='".$idx."' "; 
+        
+            if(mysqli_query($appDBconn, $query1))
+            {
+            $response=array(
+            'status' => 1,
+            'status_message' =>'Données mises à jour avec succès !' 
+            );
+            }
+            else
+            {
+            $response=array(
+            'status' => 0,
+            'status_message' =>'ERREUR!.'. mysqli_error($appDBconn)
+            );
+            }
+            header('Content-Type: application/json');
+            echo json_encode($response);
+        }
+        else
+        {
+              $query0 = "INSERT INTO ".$table1." (date, numFact, nomClt, nomCatOeuf, qte, prixCatOeuf, mntCatOeuf, lieu, userLog, datehr, idClt) 
+                        VALUES('".$date."', '".$numFact."', '".$nomClt."', '".$nomCatOeuf."', '".$qte."', '".$prixCatOeuf."', '".$mntCatOeuf."', '".$lieu."', '".$userLog."', '".$datehr."', '".$idClt."') ";
+        
+            if(mysqli_query($appDBconn, $query0))
+            {
+                $insert_id = mysqli_insert_id($appDBconn);
+                $response=array(
+                'status' => 1,
+                'status_message' =>'Données ajoutées avec succès !' );
+            }
+            else
+            {
+                $response=array(
+                'status' => 0,
+                'status_message' =>'ERREUR! ->  '. mysqli_error($appDBconn) );
+            }
+            
+            header('Content-Type: application/json');
+            echo json_encode($response); 
+        }
+}
+
+//#####################################################################
+//#####################################################################
+//#####################################################################
+
+function addAllFactData()
+{
+
+	global $appDBconn, $table2, $dateTimeNow, $dateNow, $responseaddAllFactData;
+
+    $date = checkEmptyInput($_POST["date"]);
+    $dateNumFact = checkEmptyInput($_POST["dateNumFact"]);
+    $userLog = checkEmptyInput($_POST["userLog"]);
+    $datehr = $dateTimeNow;
+
+        $querySelect = "SELECT * FROM ".$table2." ";	
+        $resultSelect = mysqli_query($appDBconn, $querySelect);
+        
+        if( mysqli_num_rows($resultSelect) > 0) {
+
+            while($row = mysqli_fetch_assoc($resultSelect)) 
+            {    
+                $id = $row["id"];
+                $nom = $row["nom"];
+                $lieu = $row["lieuAchatFav"];
+                $numFact = 'CREATO_'.$id.'_'.$dateNumFact;
+
+                // --------------------------------------------------------
+                // --------------------------------------------------------
+                // --------------------------------------------------------
+
+                $req_curl_init = curl_init('https://groupecreato.online/users/api/facturationReq.php');
+
+                $req_Data = array(
+                  'date' => $date,
+                  'nomClt' => $nom,
+                  'numFact' => $numFact,
+                  'lieu' => $lieu,
+                  'userLog' => $userLog,
+                  'idClt' => $id,
+                  'opera' => 'addFactData'
+                );
+              
+                $req_Data = http_build_query($req_Data);
+                // $req_Data = json_encode($req_Data);
+              
+                curl_setopt($req_curl_init, CURLOPT_POST, 1);
+                curl_setopt($req_curl_init, CURLOPT_SSL_VERIFYPEER, 0);
+                curl_setopt($req_curl_init, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($req_curl_init, CURLOPT_POSTFIELDS, $req_Data);
+                curl_setopt($req_curl_init, CURLOPT_HTTPHEADER, array('cache-control: no-cache'
+                                                                ) );
+              
+                //Execute the request
+                $req_result = curl_exec($req_curl_init);
+              
+                //close curl session
+                curl_close($req_curl_init);
+              
+                //Decode the result JSON data
+                $req_array = json_decode($req_result, true);
+              
+                //getting data from result
+                $result_code = $req_array["status"];
+                $result_message = $req_array["status_message"];
+
+                // --------------------------------------------------------
+                // --------------------------------------------------------
+                // --------------------------------------------------------
+
+                if($result_code == 1)
+                {
+                    $response=array(
+                    'status' => 1,
+                    'status_message' =>'Facture '.$numFact.' créée pour le client '.$nom.' ! <br>' );
+                }
+                else
+                {
+                    $response=array(
+                    'status' => 0,
+                    'status_message' => $result_message.'<br>' );
+                }
+                
+                array_push($responseaddAllFactData, $response['status_message']);
+
+            }
+
+        header('Content-Type: application/json');
+        echo json_encode($responseaddAllFactData);
+            
+        }
+
+}
+
+//#####################################################################
+//#####################################################################
+//#####################################################################
+function addPayData()
+{
+
+	global $appDBconn, $table3, $dateTimeNow, $dateNow;
+
+    $date = checkEmptyInput($_POST["date"]);
+    $userLog = checkEmptyInput($_POST["userLog"]);
+    $nomClt = checkEmptyInput($_POST["nomClt"]);
+    $idClt = checkEmptyInput($_POST["idClt"]);
+    $numFact = checkEmptyInput($_POST["numFact"]);
+    $mntPay = checkEmptyInput($_POST["mntPay"]);
+    $datehr = $dateTimeNow;
+
+    $query0 = "INSERT INTO ".$table3." (date, numFact, nomClt, mntPay, userLog, datehr, idClt) 
+                VALUES('".$date."', '".$numFact."', '".$nomClt."', '".$mntPay."', '".$userLog."', '".$datehr."', '".$idClt."') ";
+
+    if(mysqli_query($appDBconn, $query0))
+    {
+        $insert_id = mysqli_insert_id($appDBconn);
+        $response=array(
+        'status' => 1,
+        'status_message' =>'Données ajoutées avec succès !' );
+    }
+    else
+    {
+        $response=array(
+        'status' => 0,
+        'status_message' =>'ERREUR! ->  '. mysqli_error($appDBconn) );
+    }
+    
+    header('Content-Type: application/json');
+    echo json_encode($response); 
+}
+
+//#####################################################################
+//#####################################################################
+//#####################################################################
+
+// function updateData($id)
+// {
+// 	global $appDBconn;
+// 	global $table;
+// 	$_PUT = array();
+// 	parse_str(file_get_contents('php://input'), $_PUT);
+// 	$name = $_PUT["name"];
+// 	$description = $_PUT["description"];
+// 	$price = $_PUT["price"];
+// 	$category = $_PUT["category"];
+// 	$created = 'NULL';
+// 	$modified = date('Y-m-d H:i:s');
+// 	$query="UPDATE ".$table." SET name='".$name."', description='".$description."', price='".$price."', category_id='".$category."', modified='".$modified."' WHERE id=".$id;
+	
+// 	if(mysqli_query($appDBconn, $query))
+// 	{
+// 		$response=array(
+// 			'status' => 1,
+// 			'status_message' =>'Produit mis a jour avec succes.'
+// 		);
+// 	}
+// 	else 
+// 	{
+// 		$response=array(
+// 			'status' => 0,
+// 			'status_message' =>'Echec de la mise a jour de produit. '. mysqli_error($appDBconn)
+// 		);
+		
+// 	}
+	
+// 	header('Content-Type: application/json');
+// 	echo json_encode($response);
+// }
+
+// function deleteData($id)
+// {
+// 	global $appDBconn;
+// 	global $table;
+// 	$query = "DELETE FROM ".$table." WHERE id=".$id;
+// 	if(mysqli_query($appDBconn, $query))
+// 	{
+// 		$response=array(
+// 			'status' => 1,
+// 			'status_message' =>'Produit supprime avec succes.'
+// 		);
+// 	}
+// 	else
+// 	{
+// 		$response=array(
+// 			'status' => 0,
+// 			'status_message' =>'La suppression du produit a echoue. '. mysqli_error($appDBconn)
+// 		);
+// 	}
+// 	header('Content-Type: application/json');
+// 	echo json_encode($response);
+// }
+
+switch($request_method)
+{
+
+	case 'POST':
+		// Retrive data
+		if ($_POST["opera"] == 'getAllData')
+		{
+		    getAllData();
+		}
+		
+		// Add new data
+		if ($_POST["opera"] == 'addFactData')
+		{
+		    addFactData();
+		}
+
+        // Add new data
+		if ($_POST["opera"] == 'addAllFactData')
+		{
+		    addAllFactData();
+		}
+
+        // Add new data
+		if ($_POST["opera"] == 'addFactDetailsData')
+		{
+		    addFactDetailsData();
+		}
+
+        // Add new data
+		if ($_POST["opera"] == 'addPayData')
+		{
+		    addPayData();
+		}       
+		break;
+		
+	default:
+		// Invalid Request Method
+		header("HTTP/1.0 405 Method Not Allowed");
+		break;
+}
+?>

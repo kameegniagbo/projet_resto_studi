@@ -1,0 +1,8 @@
+[20-Aug-2020 08:30:29 UTC] PHP Fatal error:  Uncaught Error: Class 'ChartJs\ChartJS' not found in /home/xu8d02tjknog/projets.iron-technologies.com/toof/users/chartjs/barHrsViz.php:80
+Stack trace:
+#0 {main}
+  thrown in /home/xu8d02tjknog/projets.iron-technologies.com/toof/users/chartjs/barHrsViz.php on line 80
+[20-Aug-2020 08:30:32 UTC] PHP Fatal error:  Uncaught Error: Class 'ChartJs\ChartJS' not found in /home/xu8d02tjknog/projets.iron-technologies.com/toof/users/chartjs/barHrsViz.php:80
+Stack trace:
+#0 {main}
+  thrown in /home/xu8d02tjknog/projets.iron-technologies.com/toof/users/chartjs/barHrsViz.php on line 80
