@@ -26,9 +26,9 @@ require_once $abs_us_root . $us_url_root . 'users/helpers/helpers.php';
 $GLOBALS['config'] = array(
 	'mysql' => array(
 		'host' => 'localhost',
-		'username' => 'groupecreato',
-		'password' => 'CREATO@db@mysql@$3cur1ty',
-		'db' => 'groupecreato',
+		'username' => 'resto',
+		'password' => 'mysql@228@RESTO',
+		'db' => 'resto',
 	),
 	'remember' => array(
 		'cookie_name' => '9Hv9Zfswn4j7Rj5Ei4cs',
@@ -74,9 +74,9 @@ $timezone_string = 'Africa/Lome';
 date_default_timezone_set($timezone_string);
 
 $appDBServer = "localhost";
-$appDBUsername = "groupecreato";
-$appDBpassword = "CREATO@db@mysql@$3cur1ty";
-$appDB = "groupecreato";
+$appDBUsername = "resto";
+$appDBpassword = "mysql@228@RESTO";
+$appDB = "resto";
 $appDBconn = mysqli_connect($appDBServer, $appDBUsername, $appDBpassword, $appDB);
 
 if (!$appDBconn) {
