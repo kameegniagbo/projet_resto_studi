@@ -105,7 +105,7 @@ https://templatemo.com/tm-558-klassy-cafe
                             <h4>Le Quai Antique</h4>
                             <h6>VOTRE MEILLEURE EXPERIENCE</h6>
                             <div class="main-white-button scroll-to-section">
-                                <a href="#reservation">Make A Reservation</a>
+                                <a href="#reservation">Faites votre Reservation</a>
                             </div>
                         </div>
                     </div>
