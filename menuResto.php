@@ -79,10 +79,9 @@ https://templatemo.com/tm-558-klassy-cafe
         <div class="container">
             <div class="row" style="background-color:#A5497E;">
                 <div class="col-lg-12 text-center">
-                <!-- <div class="col-lg-4 offset-lg-4 text-center"> -->
                     <div class="section-heading">
-                        <h6>Menu</h6>
-                        <h2>Les offres spéciales de la semaine</h2>
+                        <h2 class="text-white">Menu</h2>
+                        <h4>Les offres spéciales de la semaine</h4>
                     </div>
                 </div>
             </div>
