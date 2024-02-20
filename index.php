@@ -357,17 +357,17 @@ https://templatemo.com/tm-558-klassy-cafe
                             </div>
                             <div class="col-lg-6 col-sm-12">
                               <fieldset>
-                                <input name="name" type="text" id="name" placeholder="Your Name*" required="">
+                                <input name="name" type="text" id="name" placeholder="Votre nom*" required="">
                               </fieldset>
                             </div>
                             <div class="col-lg-6 col-sm-12">
                               <fieldset>
-                              <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address" required="">
+                              <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Votre adresse email" required="">
                             </fieldset>
                             </div>
                             <div class="col-lg-6 col-sm-12">
                               <fieldset>
-                                <input name="phone" type="text" id="phone" placeholder="Phone Number*" required="">
+                                <input name="phone" type="text" id="phone" placeholder="Numero de telephone*" required="">
                               </fieldset>
                             </div>
                             <div class="col-md-6 col-sm-12">
