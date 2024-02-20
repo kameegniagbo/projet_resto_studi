@@ -334,14 +334,14 @@ https://templatemo.com/tm-558-klassy-cafe
                             <div class="col-lg-6">
                                 <div class="phone">
                                     <i class="fa fa-phone"></i>
-                                    <h4>Contacts téléphoniques</h4>
+                                    <h4>Téléphone</h4>
                                     <span><a href="#">654-112-0990</a><br><a href="#">654-112-0880</a></span>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="message">
                                     <i class="fa fa-envelope"></i>
-                                    <h4>Emails</h4>
+                                    <h4>Courriels</h4>
                                     <span><a href="#">salut@lequaiantique.com</a><br><a href="#">info@lequaiantique.com</a></span>
                                 </div>
                             </div>
@@ -353,7 +353,7 @@ https://templatemo.com/tm-558-klassy-cafe
                         <form id="contact" action="" method="post">
                           <div class="row">
                             <div class="col-lg-12">
-                                <h4>Table Reservation</h4>
+                                <h4>Réservation</h4>
                             </div>
                             <div class="col-lg-6 col-sm-12">
                               <fieldset>
@@ -373,7 +373,7 @@ https://templatemo.com/tm-558-klassy-cafe
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
                                 <select value="number-guests" name="number-guests" id="number-guests">
-                                    <option value="number-guests">Number Of Guests</option>
+                                    <option value="number-guests">Nombre d'invités</option>
                                     <option name="1" id="1">1</option>
                                     <option name="2" id="2">2</option>
                                     <option name="3" id="3">3</option>
@@ -402,10 +402,10 @@ https://templatemo.com/tm-558-klassy-cafe
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
                                 <select value="time" name="time" id="time">
-                                    <option value="time">Time</option>
-                                    <option name="Breakfast" id="Breakfast">Breakfast</option>
-                                    <option name="Lunch" id="Lunch">Lunch</option>
-                                    <option name="Dinner" id="Dinner">Dinner</option>
+                                    <option value="time">Heure</option>
+                                    <option name="Breakfast" id="Breakfast">Petit Déjeuner</option>
+                                    <option name="Lunch" id="Lunch">Déjeuner</option>
+                                    <option name="Dinner" id="Dinner">Dîner</option>
                                 </select>
                               </fieldset>
                             </div>
