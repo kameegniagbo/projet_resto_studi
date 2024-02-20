@@ -77,7 +77,7 @@ https://templatemo.com/tm-558-klassy-cafe
     <!-- ***** Menu Area Starts ***** -->
     <section class="section" id="offers">
         <div class="container">
-            <div class="row">
+            <div class="row" style="background-color:#A5497E;">
                 <div class="col-lg-12 text-center">
                 <!-- <div class="col-lg-4 offset-lg-4 text-center"> -->
                     <div class="section-heading">
