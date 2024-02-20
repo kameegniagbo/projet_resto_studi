@@ -59,7 +59,7 @@ https://templatemo.com/tm-558-klassy-cafe
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="index.php#top">Accueil</a></li>
                             <li class="scroll-to-section"><a href="index.php#about">A Propos</a></li>
-                            <li class="scroll-to-section"><a class="active" href="menuResto.php#menu">Menu</a></li>
+                            <li class="scroll-to-section"><a class="active" href="carteResto.php#menu">Notre Carte</a></li>
                             <li class="scroll-to-section"><a href="index.php#chefs">Chefs</a></li> 
                             <li class="scroll-to-section"><a href="index.php#reservation">Contacts</a></li> 
                         </ul>        
@@ -77,11 +77,11 @@ https://templatemo.com/tm-558-klassy-cafe
     <!-- ***** Menu Area Starts ***** -->
     <section class="section" id="offers">
         <div class="container">
-            <div class="row" style="background-color:#A5497E;">
+            <div class="row mb-3" style="background-color:#A5497E;">
                 <div class="col-lg-12 text-center">
                     <div class="section-heading">
-                        <h2 class="text-white">Menu</h2>
-                        <h4>Les offres spéciales de la semaine</h4>
+                        <h2 class="text-white">Notre carte</h2>
+                        <h4>Des offres spéciales pour nos clients</h4>
                     </div>
                 </div>
             </div>
