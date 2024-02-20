@@ -326,7 +326,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-lg-6 align-self-center">
                     <div class="left-text-content">
                         <div class="section-heading">
-                            <h6>Contact Us</h6>
+                            <h6>Contactez-nous</h6>
                             <h2>Here You Can Make A Reservation Or Just walkin to our cafe</h2>
                         </div>
                         <p>Donec pretium est orci, non vulputate arcu hendrerit a. Fusce a eleifend riqsie, namei sollicitudin urna diam, sed commodo purus porta ut.</p>
@@ -334,15 +334,15 @@ https://templatemo.com/tm-558-klassy-cafe
                             <div class="col-lg-6">
                                 <div class="phone">
                                     <i class="fa fa-phone"></i>
-                                    <h4>Phone Numbers</h4>
-                                    <span><a href="#">080-090-0990</a><br><a href="#">080-090-0880</a></span>
+                                    <h4>Contacts téléphoniques</h4>
+                                    <span><a href="#">654-112-0990</a><br><a href="#">654-112-0880</a></span>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="message">
                                     <i class="fa fa-envelope"></i>
                                     <h4>Emails</h4>
-                                    <span><a href="#">hello@company.com</a><br><a href="#">info@company.com</a></span>
+                                    <span><a href="#">salut@lequaiantique.com</a><br><a href="#">info@lequaiantique.com</a></span>
                                 </div>
                             </div>
                         </div>
@@ -416,7 +416,7 @@ https://templatemo.com/tm-558-klassy-cafe
                             </div>
                             <div class="col-lg-12">
                               <fieldset>
-                                <button type="submit" id="form-submit" class="main-button-icon">Make A Reservation</button>
+                                <button type="submit" id="form-submit" class="main-button-icon">Faites une Réservation</button>
                               </fieldset>
                             </div>
                           </div>
