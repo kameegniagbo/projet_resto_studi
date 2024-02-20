@@ -78,10 +78,11 @@ https://templatemo.com/tm-558-klassy-cafe
     <section class="section" id="offers">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 offset-lg-4 text-center">
+                <div class="col-lg-12 text-center">
+                <!-- <div class="col-lg-4 offset-lg-4 text-center"> -->
                     <div class="section-heading">
-                        <h6>Klassy Week</h6>
-                        <h2>This Week’s Special Meal Offers</h2>
+                        <h6>Menu</h6>
+                        <h2>Les offres spéciales de la semaine</h2>
                     </div>
                 </div>
             </div>
