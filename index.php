@@ -129,9 +129,9 @@ https://templatemo.com/tm-558-klassy-cafe
                     <div class="left-text-content">
                         <div class="section-heading">
                             <h6>À Propos</h6>
-                            <h2>We Leave A Delicious Memory For You</h2>
+                            <h2>Vivez une belle experience</h2>
                         </div>
-                        <p>Popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                        <p>Popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. <br><br>
                         Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
                         <div class="row">
                             <div class="col-4">
