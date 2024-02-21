@@ -58,7 +58,7 @@ https://templatemo.com/tm-558-klassy-cafe
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav"> 
                         <li class="scroll-to-section"><a href="index.php#top" class="active" >Accueil</a></li>
-                            <li class="scroll-to-section"><a href="index.php#about">A Propos</a></li>
+                            <li class="scroll-to-section"><a href="index.php#about">À Propos</a></li>
                             <li class="scroll-to-section"><a href="carteResto.php#menu">Notre Carte</a></li>
                             <li class="scroll-to-section"><a href="index.php#chefs">Chefs</a></li> 
                             <li class="scroll-to-section"><a href="index.php#reservation">Contacts</a></li> 
@@ -128,7 +128,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-lg-6 col-md-6 col-xs-12">
                     <div class="left-text-content">
                         <div class="section-heading">
-                            <h6>About Us</h6>
+                            <h6>À Propos</h6>
                             <h2>We Leave A Delicious Memory For You</h2>
                         </div>
                         <p>Klassy Cafe is one of the best <a href="https://templatemo.com/tag/restaurant" target="_blank" rel="sponsored">restaurant HTML templates</a> with Bootstrap v4.5.2 CSS framework. You can download and feel free to use this website template layout for your restaurant business. You are allowed to use this template for commercial purposes. <br><br>You are NOT allowed to redistribute the template ZIP file on any template donwnload website. Please contact us for more information.</p>

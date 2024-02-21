@@ -58,7 +58,7 @@ https://templatemo.com/tm-558-klassy-cafe
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="index.php#top">Accueil</a></li>
-                            <li class="scroll-to-section"><a href="index.php#about">A Propos</a></li>
+                            <li class="scroll-to-section"><a href="index.php#about">À Propos</a></li>
                             <li class="scroll-to-section"><a class="active" href="carteResto.php#menu">Notre Carte</a></li>
                             <li class="scroll-to-section"><a href="index.php#chefs">Chefs</a></li> 
                             <li class="scroll-to-section"><a href="index.php#reservation">Contacts</a></li> 
