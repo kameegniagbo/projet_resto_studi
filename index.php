@@ -416,7 +416,7 @@ https://templatemo.com/tm-558-klassy-cafe
                             </div>
                             <div class="col-lg-12">
                               <fieldset>
-                                <button type="submit" id="form-submit" class="main-button-icon">Faites une Réservation</button>
+                                <button type="submit" id="form-submit" class="main-button-icon">Valider</button>
                               </fieldset>
                             </div>
                           </div>
@@ -449,9 +449,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 </div>
                 <div class="col-lg-4 col-xs-12">
                     <div class="left-text-content">
-                        <p>© Copyright Klassy Cafe Co.
-                        
-                        <br>Design: TemplateMo</p>
+                        <p>© Copyright Le Quai Antique</p>
                     </div>
                 </div>
             </div>
