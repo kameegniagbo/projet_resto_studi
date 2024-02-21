@@ -259,7 +259,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-lg-4 offset-lg-4 text-center">
                     <div class="section-heading">
                         <h6>Nos Chefs</h6>
-                        <h2>Nous offrons les meilleurs ingredients pour vous</h2>
+                        <h2>Nous utilisons les meilleurs ingredients pour vous</h2>
                     </div>
                 </div>
             </div>
