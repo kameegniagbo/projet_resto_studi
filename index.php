@@ -175,7 +175,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="owl-menu-item owl-carousel">
                     <div class="item">
                         <div class='card card1'>
-                            <div class="price"><h6>$14</h6></div>
+                            <div class="price"><h6>€14</h6></div>
                             <div class='info'>
                               <h1 class='title'>Chocolate Cake</h1>
                               <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
@@ -187,7 +187,7 @@ https://templatemo.com/tm-558-klassy-cafe
                     </div>
                     <div class="item">
                         <div class='card card2'>
-                            <div class="price"><h6>$22</h6></div>
+                            <div class="price"><h6>€22</h6></div>
                             <div class='info'>
                               <h1 class='title'>Klassy Pancake</h1>
                               <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
@@ -199,7 +199,7 @@ https://templatemo.com/tm-558-klassy-cafe
                     </div>
                     <div class="item">
                         <div class='card card3'>
-                            <div class="price"><h6>$18</h6></div>
+                            <div class="price"><h6>€18</h6></div>
                             <div class='info'>
                               <h1 class='title'>Tall Klassy Bread</h1>
                               <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
@@ -211,7 +211,7 @@ https://templatemo.com/tm-558-klassy-cafe
                     </div>
                     <div class="item">
                         <div class='card card4'>
-                            <div class="price"><h6>$10</h6></div>
+                            <div class="price"><h6>€10</h6></div>
                             <div class='info'>
                               <h1 class='title'>Blueberry CheeseCake</h1>
                               <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
@@ -223,7 +223,7 @@ https://templatemo.com/tm-558-klassy-cafe
                     </div>
                     <div class="item">
                         <div class='card card5'>
-                            <div class="price"><h6>$8.50</h6></div>
+                            <div class="price"><h6>€8.50</h6></div>
                             <div class='info'>
                               <h1 class='title'>Klassy Cup Cake</h1>
                               <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
@@ -235,7 +235,7 @@ https://templatemo.com/tm-558-klassy-cafe
                     </div>
                     <div class="item">
                         <div class='card card3'>
-                            <div class="price"><h6>$7.25</h6></div>
+                            <div class="price"><h6>€7.25</h6></div>
                             <div class='info'>
                               <h1 class='title'>Klassic Cake</h1>
                               <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
@@ -479,15 +479,15 @@ https://templatemo.com/tm-558-klassy-cafe
     <script src="assets/js/custom.js"></script>
     <script>
 
-        $(function() {
+        €(function() {
             var selectedClass = "";
-            $("p").click(function(){
-            selectedClass = $(this).attr("data-rel");
-            $("#portfolio").fadeTo(50, 0.1);
-                $("#portfolio div").not("."+selectedClass).fadeOut();
+            €("p").click(function(){
+            selectedClass = €(this).attr("data-rel");
+            €("#portfolio").fadeTo(50, 0.1);
+                €("#portfolio div").not("."+selectedClass).fadeOut();
             setTimeout(function() {
-              $("."+selectedClass).fadeIn();
-              $("#portfolio").fadeTo(50, 1);
+              €("."+selectedClass).fadeIn();
+              €("#portfolio").fadeTo(50, 1);
             }, 500);
                 
             });
